@@ -23,6 +23,7 @@
 }
 .menu {
 	padding: rem(20) 0;
+	position: relative;
 
 	@media (max-width: $mobile) {
 		display: flex;
@@ -42,14 +43,17 @@
 		@media (max-width: $mobile) {
 			position: absolute;
 			top: 100%;
-			left: 0;
+			right: 0;
 			width: 100%;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.3s ease;
+			flex-direction: column;
+			align-items: end;
+			opacity: 0;
+			transition: opacity 0.3s ease 0.3s;
+			padding: rem(5) rem(20);
+			display: none;
+
 			.menu-open & {
-				max-height: 100vh;
-				transition: max-height 0.3s ease, opacity 0.3s 0.2s ease;
+				display: flex;
 				opacity: 1;
 			}
 		}
@@ -57,9 +61,15 @@
 	// .menu__list
 	&__list {
 		display: flex;
-		gap: rem(5) rem(30);
+		gap: rem(5) rem(20);
 		flex-wrap: wrap;
-		width: 45%;
+		width: 47%;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			width: auto;
+			align-items: end;
+		}
 	}
 	// .menu__item
 	&__item {
@@ -68,7 +78,7 @@
 	&__link {
 		font-family: $fontAccent;
 		text-transform: uppercase;
-		padding: rem(14.5) 0;
+		padding: rem(14.5) rem(5);
 		display: inline-block;
 		font-size: rem(16);
 
@@ -81,6 +91,9 @@
 			&:active {
 				opacity: 0.5;
 			}
+			&:focus {
+				outline: rem(1) solid $mainButtonBg;
+			}
 		}
 	}
 	// .menu__contacts
@@ -90,20 +103,32 @@
 
 .contacts {
 	display: flex;
-	gap: rem(30);
+	gap: rem(6) rem(30);
 	flex-wrap: wrap;
-	max-width: 45%;
+	width: 47%;
 	align-items: center;
+	justify-content: flex-end;
+
+	@media (max-width: $mobile) {
+		flex-direction: column;
+		align-items: end;
+		width: auto;
+	}
 
 	// .contacts__phone
 	&__phone {
 		font-family: $fontAccent;
 		text-transform: uppercase;
-		padding: rem(14.5) 0;
+		padding: rem(14.5) rem(5);
 		display: inline-block;
 		font-size: rem(16);
 		margin-right: rem(40);
 		transition: transform 0.3s ease, color 0.3s ease;
+		outline: none;
+
+		@media (max-width: $mobile) {
+			margin-right: 0;
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -114,11 +139,15 @@
 				transform: scale(1.1);
 				color: $mainButtonBg;
 			}
+			&:focus {
+				outline: rem(1) solid $mainButtonBg;
+			}
 		}
 	}
 	// .contacts__list
 	&__list {
 		display: flex;
+		flex-wrap: wrap;
 		gap: rem(10);
 
 		a {
@@ -135,6 +164,10 @@
 				&:active {
 					transform: scale(1.1);
 					color: $mainButtonBg;
+				}
+				&:focus {
+					outline: rem(1) solid $mainButtonBg;
+					outline-offset: rem(2);
 				}
 			}
 		}
@@ -156,8 +189,24 @@
 		width: rem(40);
 		height: rem(26);
 		z-index: 5;
+		transition: transform 0.3s ease, color 0.3s ease;
 		@media (any-hover: none) {
 			cursor: default;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.2);
+				color: $mainButtonBg;
+			}
+			&:active {
+				transform: scale(1.1);
+				color: $mainButtonBg;
+			}
+			&:focus {
+				outline: rem(1) solid $mainButtonBg;
+				outline-offset: rem(5);
+			}
 		}
 		span,
 		&::before,
