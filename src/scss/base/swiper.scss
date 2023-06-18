@@ -1,8 +1,14 @@
+.slider {
+	position: relative;
+	height: rem(800);
+}
+
 .slide {
 	background-color: inherit;
 	line-height: 100px;
 	text-align: center;
 	font-weight: bold;
+	position: relative;
 }
 .slick-arrow {
 	display: flex;
@@ -60,12 +66,34 @@
 	margin-right: 0;
 }
 
-.slide__image-ibg {
-	padding-bottom: 80%;
-	margin-top: 20%;
-	transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
-	.slick-current & {
-		padding-bottom: 147%;
-		margin-top: 0;
+.slide__image {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		display: block;
+		padding-bottom: calc(350 / 406 * 100%); /* тут подбирается %, чтобы соответствовать нужным пропорциям картинки */
+		transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
+
+		.slick-current & {
+			padding-bottom: calc(600 / 406 * 100%);
+		}
+	}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.slick-slide {
+	padding-top: 60px;
+	transition: padding 0.3s ease 0s;
+	&.slick-current {
+		padding-top: 0px;
 	}
 }

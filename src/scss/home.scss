@@ -1,3 +1,69 @@
 .intro__slider-container {
 	position: relative;
 }
+
+.slider__nav {
+	position: absolute;
+	right: 4%;
+	bottom: 17%;
+}
+
+.intro {
+	padding-top: rem(100);
+	&__container {
+		position: relative;
+	}
+
+	&__title-wrapper {
+		position: absolute;
+		top: 7%;
+	}
+
+	&__title {
+		font-family: "Arsenal";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 120%;
+		width: rem(380);
+		text-transform: uppercase;
+		margin-bottom: rem(15);
+	}
+
+	&__description {
+		font-family: "Source Sans Pro";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 140%;
+		opacity: 0.5;
+	}
+
+	&__slider {
+		position: relative;
+		padding-left: 500px;
+	}
+
+	&__button {
+		padding: rem(15) rem(27);
+		background-color: $mainButtonBg;
+		color: #fcfcfc;
+		font-size: rem(16);
+		line-height: 1.1;
+		position: absolute;
+		top: 39%;
+		transition: opacity 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.6;
+			}
+			&:active {
+				opacity: 0.8;
+			}
+			&:focus-visible {
+				outline: 2px solid $mainColor;
+			}
+		}
+	}
+}
