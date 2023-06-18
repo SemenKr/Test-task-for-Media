@@ -91,7 +91,7 @@
 			&:active {
 				opacity: 0.5;
 			}
-			&:focus {
+			&:focus-visible {
 				outline: rem(1) solid $mainButtonBg;
 			}
 		}
@@ -139,7 +139,7 @@
 				transform: scale(1.1);
 				color: $mainButtonBg;
 			}
-			&:focus {
+			&:focus-visible {
 				outline: rem(1) solid $mainButtonBg;
 			}
 		}
@@ -165,7 +165,7 @@
 					transform: scale(1.1);
 					color: $mainButtonBg;
 				}
-				&:focus {
+				&:focus-visible {
 					outline: rem(1) solid $mainButtonBg;
 					outline-offset: rem(2);
 				}
@@ -203,7 +203,7 @@
 				transform: scale(1.1);
 				color: $mainButtonBg;
 			}
-			&:focus {
+			&:focus-visible {
 				outline: rem(1) solid $mainButtonBg;
 				outline-offset: rem(5);
 			}

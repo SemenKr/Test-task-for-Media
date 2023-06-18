@@ -12,9 +12,6 @@
 	}
 	// .footer__bottom
 	&__bottom {
-		padding-top: rem(30);
-		display: flex;
-		justify-content: space-between;
 	}
 }
 .footer-top {
@@ -29,8 +26,18 @@
 		grid-template-columns: 1fr auto;
 		grid-template-rows: auto auto;
 	}
+
+	@media (max-width: em(550)) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 	// .footer-top__products
 	&__products {
+		@media (max-width: em(550)) {
+			margin-bottom: rem(30);
+		}
 	}
 	// .footer-top__products-list
 	&__products-list {
@@ -63,18 +70,13 @@
 	}
 	// .footer-top__nav
 	&__nav {
+		@media (max-width: em(550)) {
+			order: -1;
+			margin-bottom: rem(30);
+		}
 	}
 	// .footer-top__contacts
 	&__contacts {
-		display: flex;
-		flex-direction: column;
-		align-items: end;
-		width: rem(280);
-
-		@media (max-width: $mobile) {
-			grid-row: 2/3;
-			grid-column: span 2;
-		}
 	}
 }
 .footer-nav {
@@ -106,12 +108,51 @@
 		}
 	}
 }
-.contacts {
-	// .contacts__adress
+
+.footer-contacts {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	width: rem(280);
+
+	@media (max-width: $mobile) {
+		grid-row: 2/3;
+		grid-column: 1 /3;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	@media (max-width: em(550)) {
+		flex-direction: column;
+		align-items: center;
+	}
+
 	&__adress {
 		font-size: 14px;
 		line-height: 140%;
+		@media (max-width: $mobile) {
+			width: rem(235);
+		}
+
+		@media (max-width: em(550)) {
+			text-align: center;
+			width: 100%;
+			margin-bottom: rem(20);
+		}
 	}
+
+	&__wrapper {
+	}
+}
+.contacts {
+	&--footer {
+		@media (max-width: em(550)) {
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
 	// .contacts__phone
 	&__phone {
 		&--footer {
@@ -127,6 +168,15 @@
 }
 
 .footer-bottom {
+	padding-top: rem(30);
+	display: flex;
+	justify-content: space-between;
+
+	@media (max-width: em(550)) {
+		flex-direction: column;
+		align-items: center;
+		row-gap: rem(15);
+	}
 	// .footer-bottom__copyright
 	&__copyright {
 	}
@@ -135,6 +185,7 @@
 	}
 	// .footer-bottom__logo
 	&__logo {
+		display: flex;
 	}
 }
 

@@ -24,7 +24,7 @@ $fontSize: rem(14); // где 14(px) - размер шрифта по умолч
 
 // Основные цвета
 $mainColor: #33342f; // Цвет шрифта по умолчанию
-$mainBg: #c1c1c1;
+$mainBg: #ffffff;
 $mainLogoColor: #396e8b;
 $mainButtonBg: #92866c;
 $mainLightText: #fcfcfc;
@@ -151,6 +151,7 @@ body {
 
 // Подключение стилей общих элементов проекта
 @import "common";
+@import "../scss/base/swiper";
 
 // Подключение стилей отдельных блоков
 @import "header";
