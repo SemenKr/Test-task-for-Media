@@ -1,1 +1,27 @@
 <script src="js/app.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+	$('.slider').on('init reInit afterChange', function (event, slick, currentSlide) {
+		//Рассчитываем длину окружности в кнопке по школьной формуле (с=2πr)
+		var circleLength = $('.slick-next circle').attr('r') * Math.PI * 2;
+
+		//Определяем индекс текущего слайда. При событиях "init" и "reInit" параметр "currentSlide" не определён, в этом случае currentSlide приравниваем к нулю. Также добавляем единицу, т.к. отсчёт слайдов начинается с нуля. 
+		var i = (currentSlide ? currentSlide : 0) + 1;
+
+		//Определяем долю заполнения, разделив индекс текущего слайда на общее количество слайдов
+		var part = i / slick.slideCount;
+
+		//Задаём кругу внутри кнопки свойство "stroke-dasharray". Первый параметр - длина видимой части границы, второй - длина пустого промежутка.
+		$('.slick-next circle').css('stroke-dasharray', circleLength * part + ',' + circleLength);
+	});
+
+	$('.slider').slick({
+		dots: false,
+		arrows: true,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		prevArrow: '',
+		nextArrow: '<svg class="slick-arrow slick-next" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" transform="rotate(-90,20,20)" /></svg>',
+		appendArrows: $('.slider__nav')
+	});
+</script>

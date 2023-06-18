@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper с node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, {Navigation} from 'swiper';
 /*
 Основные модули слайдера:
 Navigation, Pagination, Autoplay,
@@ -35,14 +35,14 @@ function initSliders() {
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 0,
 			autoHeight: true,
 			speed: 800,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
@@ -134,9 +134,46 @@ function initSlidersScroll() {
 	}
 }
 
+
+
 window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
 	initSliders();
 	// Запуск инициализации скрола на базе слайдера (по классу swiper_scroll)
 	//initSlidersScroll();
+	const prevButton = document.querySelector('.swiper-button-prev');
+	const nextButton = document.querySelector('.swiper-button-next');
+
+	prevButton.addEventListener('mouseenter', function () {
+		prevButton.classList.add('active');
+	});
+
+	prevButton.addEventListener('mouseleave', function () {
+		prevButton.classList.remove('active');
+	});
+
+	prevButton.addEventListener('click', function () {
+		prevButton.classList.add('fill');
+
+		setTimeout(function () {
+			prevButton.classList.remove('fill');
+		}, 300);
+	});
+
+	nextButton.addEventListener('mouseenter', function () {
+		nextButton.classList.add('active');
+	});
+
+	nextButton.addEventListener('mouseleave', function () {
+		nextButton.classList.remove('active');
+	});
+
+	nextButton.addEventListener('click', function () {
+		nextButton.classList.add('fill');
+
+		setTimeout(function () {
+			nextButton.classList.remove('fill');
+		}, 300);
+	});
 });
+

@@ -14,26 +14,20 @@
 						<h1 class="intro__title">Изделия из стекла и стеклянные конструкции</h1>
 						<p class="intro__description">На заказ в Санкт-Петербурге</p>
 					</div>
-					<div class="swiper">
-						<!-- Additional required wrapper -->
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">Slide 1</div>
-							<div class="swiper-slide">Slide 2</div>
-							<div class="swiper-slide">Slide 3</div>
-							...
-						</div>
-						<!-- If we need pagination -->
-						<div class="swiper-pagination"></div>
 
-						<!-- If we need navigation buttons -->
-						<div class="swiper-button-prev"></div>
-						<div class="swiper-button-next"></div>
-
-						<!-- If we need scrollbar -->
-						<div class="swiper-scrollbar"></div>
+					<div class="slider">
+						<div class="slide"><img src="https://picsum.photos/200/300" alt=""></div>
+						<div class="slide"><img src="https://picsum.photos/200/300" alt=""></div>
+						<div class="slide"><img src="https://picsum.photos/200/300" alt=""></div>
+						<div class="slide"><img src="https://picsum.photos/200/300" alt=""></div>
+						<div class="slide"><img src="https://picsum.photos/200/300" alt=""></div>
 					</div>
-
+					<div class="slider__nav">
+						<svg class="svg-icon slider__arrow-icon">
+							<use xlink:href="@img/icons/icons.svg#svg-slider-arrow"></use>
+						</svg>
+					</div>
+				</div>
 			</section>
 		</main>
 		@@include('html/_footer.htm',{})

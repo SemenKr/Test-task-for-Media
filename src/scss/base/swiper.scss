@@ -1,35 +1,63 @@
-.swiper {
-	overflow: hidden;
+.slide {
+	background-color: gray;
+	color: #fff;
+	line-height: 100px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 75px;
 }
-.swiper-wrapper {
-	width: 100%;
-	height: 100%;
-	box-sizing: content-box;
+.slick-arrow {
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: rem(65);
+	height: rem(65);
+	cursor: pointer;
+	outline: 1px solid hsl(72, 5%, 19%, 50%);
+	outline-offset: -4px;
+	border-radius: 50%;
+}
+.slick-arrow circle {
+	fill: #fff;
+	stroke: $mainColor;
+	stroke-width: 2;
+	stroke-dasharray: 0, 1000px;
+	transition: all 0.2s linear;
+}
+.slick-arrow path {
+	stroke-width: 1.7;
+	fill: none;
+	stroke: $mainColor;
+	stroke-linecap: round;
+}
+.slider__nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: relative;
-}
-.swiper-vertical {
-	.swiper-wrapper {
-		flex-direction: column;
+	width: rem(65);
+	height: rem(65);
+
+	.slick-arrow {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	.slider__arrow-icon {
+		width: rem(20);
+		z-index: 2;
+		pointer-events: none;
 	}
 }
-.swiper-autoheight {
-	.swiper-wrapper {
-		align-items: flex-start;
-	}
+.slick-slide {
+	margin-right: 20px; /* Задайте нужную ширину промежутка */
 }
-.swiper-initialized {
-	.swiper-slide {
-		flex-shrink: 0;
-		// transition-property: transform;
-	}
-}
-.swiper-android {
-	.swiper-slide,
-	.swiper-wrapper {
-		transform: translate3d(0px, 0, 0);
-	}
-}
-.swiper-button-lock {
-	display: none !important;
+
+/* Убедитесь, что последний слайд не имеет правого отступа */
+.slick-slide:last-child {
+	margin-right: 0;
 }
