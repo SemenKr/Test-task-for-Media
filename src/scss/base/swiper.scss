@@ -1,10 +1,8 @@
 .slide {
-	background-color: gray;
-	color: #fff;
+	background-color: inherit;
 	line-height: 100px;
 	text-align: center;
 	font-weight: bold;
-	font-size: 75px;
 }
 .slick-arrow {
 	display: flex;
@@ -60,4 +58,14 @@
 /* Убедитесь, что последний слайд не имеет правого отступа */
 .slick-slide:last-child {
 	margin-right: 0;
+}
+
+.slide__image-ibg {
+	padding-bottom: 80%;
+	margin-top: 20%;
+	transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
+	.slick-current & {
+		padding-bottom: 147%;
+		margin-top: 0;
+	}
 }
