@@ -1,0 +1,100 @@
+.intro {
+	// .intro__container
+	&__container {
+		position: relative;
+		@include adaptiveValue("padding-top", 100, 45);
+	}
+	// .intro__title-wrapper
+	&__title-wrapper {
+		position: absolute;
+		top: 7%;
+
+		@media (max-width: $mobile) {
+			position: static;
+			margin-bottom: rem(45);
+		}
+	}
+	// .intro__title
+	&__title {
+		width: rem(380);
+		margin-bottom: rem(15);
+	}
+	// .intro__description
+	&__description {
+		font-family: "Source Sans Pro";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 140%;
+		opacity: 0.5;
+	}
+	// .intro__slider
+	&__slider {
+		position: relative;
+		padding-left: 500px;
+		@include adaptiveValue("padding-left", 450, 250);
+
+		@media (max-width: $mobile) {
+			padding-left: 0;
+		}
+
+		@media (max-width: $mobileSmall) {
+			margin-right: -50%;
+		}
+	}
+	// .intro__button
+	&__button {
+		padding: rem(15) rem(27);
+		background-color: $mainButtonBg;
+		color: #fcfcfc;
+		font-size: rem(16);
+		line-height: 1.1;
+		position: absolute;
+		top: 39%;
+		transition: opacity 0.3s ease 0s;
+
+		@media (max-width: $mobile) {
+			position: static;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.6;
+			}
+			&:active {
+				opacity: 0.8;
+			}
+			&:focus-visible {
+				outline: 2px solid $mainColor;
+			}
+		}
+	}
+}
+.slider {
+	@media (max-width: $mobile) {
+		@include adaptiveValue("margin-bottom", 60, 45);
+	}
+	// .slider__nav
+	&__nav {
+		position: absolute;
+		right: 4%;
+		bottom: 12%;
+
+		@media (max-width: $mobile) {
+			bottom: 24%;
+		}
+		@media (max-width: $mobileSmall) {
+			display: none;
+		}
+	}
+	// .slider__arrow-icon
+	&__arrow-icon {
+	}
+}
+.slide {
+	// .slide__image
+	&__image {
+	}
+}
+.svg-icon {
+}

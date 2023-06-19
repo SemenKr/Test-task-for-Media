@@ -12,3 +12,21 @@
 	clip: rect(0 0 0 0);
 	overflow: hidden;
 }
+
+.title {
+	font-family: "Arsenal";
+	font-style: normal;
+	font-weight: 400;
+	line-height: 120%;
+	text-transform: uppercase;
+	@include adaptiveValue("font-size", 40, 24);
+	@include adaptiveValue("width", 380, 280);
+}
+.loader {
+	display: none;
+	text-align: center;
+	margin-top: 20px;
+}
+.loader img {
+	width: 150px;
+}

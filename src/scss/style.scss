@@ -159,3 +159,8 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+// Подключение стилей отдельных компонентов
+@import "./components/intro.scss";
+@import "./components/production.scss";
+@import "./components/cases.scss";
+@import "./components/feedback.scss";

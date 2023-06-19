@@ -1,0 +1,120 @@
+.cases__container {
+	@include adaptiveValue("padding-top", 150, 80);
+}
+.cases__slider-container {
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cases__title {
+	margin-bottom: rem(38);
+}
+
+.cases__slider {
+	position: relative;
+	overflow: hidden;
+	margin-right: -30%;
+	overflow: hidden;
+	margin-bottom: rem(60);
+	height: rem(600);
+
+	@media (max-width: $mobileSmall) {
+		height: 100%;
+	}
+}
+.progress-bar-container {
+	position: relative;
+	width: 100%;
+	height: rem(1);
+	padding: 1rem 0;
+	background-color: $mainBg;
+	border-top: 1px solid $mainColor;
+}
+
+.progress-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+.progress-slider {
+	position: absolute;
+	top: rem(-15);
+	left: rem(10);
+	width: rem(30);
+	height: rem(30);
+	background-color: $mainBg; /* Измените цвет по своему усмотрению */
+	border-radius: 50%;
+	border: 1px solid #33342f;
+	cursor: pointer;
+	transition: left 0.3s ease 0s;
+}
+
+.cases__slider .slick-arrow {
+	button {
+		display: none;
+	}
+}
+
+.cases .slick-slide {
+	margin-right: rem(20);
+
+	img {
+		display: block;
+	}
+
+	figcaption {
+		display: inline-block;
+		@include adaptiveValue("font-size", 20, 16);
+		margin-top: rem(20);
+	}
+}
+
+.cases-slide__image {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		display: block;
+		padding-bottom: calc(600 / 406 * 100%);
+		transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
+	}
+
+	@media (min-width: $mobile) {
+		&::before {
+			content: "";
+			display: block;
+			padding-bottom: calc(
+				350 / 406 * 100%
+			); /* тут подбирается %, чтобы соответствовать нужным пропорциям картинки */
+			transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
+
+			.slick-current & {
+				padding-bottom: calc(600 / 406 * 100%);
+			}
+		}
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+}
+.cases .slick-slide {
+	@media (min-width: $mobile) {
+		padding-top: 1%;
+		transition: padding 0.3s ease-in-out;
+		&.slick-current {
+			padding-top: 0px;
+		}
+	}
+}

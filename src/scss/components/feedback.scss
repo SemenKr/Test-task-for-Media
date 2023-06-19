@@ -1,0 +1,52 @@
+.feedback {
+	// .feedback__container
+	&__container {
+	}
+	// .feedback__title
+	&__title {
+	}
+	// .feedback__form-container
+	&__form-container {
+	}
+	// .feedback__form-text
+	&__form-text {
+	}
+	// .feedback__form
+	&__form {
+	}
+}
+
+.form {
+	// .form__field
+	&__field {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid $mainColor;
+		padding: rem(15) 0;
+		position: relative;
+	}
+
+	input {
+		position: absolute;
+		left: 30%;
+		right: 10%;
+		height: 100%;
+		border: none;
+		outline: none;
+
+		&::placeholder {
+			opacity: 0.3;
+		}
+	}
+
+	label {
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	&__load-file {
+		position: absolute;
+		right: 1%;
+	}
+}

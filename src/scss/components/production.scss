@@ -1,0 +1,69 @@
+.production {
+	// .production__container
+	&__container {
+	}
+	// .production__list
+	&__list {
+		@media (min-width: $mobile) {
+			columns: 2;
+			gap: rem(60);
+		}
+	}
+	// .production__item
+	&__item {
+		border-bottom: 1px solid $mainColor;
+		&:first-child {
+			border-top: 1px solid $mainColor;
+		}
+
+		@media (min-width: $mobile) {
+			&:nth-child(7) {
+				border-top: 1px solid $mainColor;
+			}
+		}
+		a {
+			display: flex;
+			column-gap: rem(40);
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+			@include adaptiveValue("font-size", 20, 16);
+			line-height: 1.3;
+			text-transform: uppercase;
+			padding: rem(18) 0;
+
+			transition: color 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: $mainLogoColor;
+					padding-left: rem(40);
+				}
+			}
+
+			&::after {
+				content: "";
+				background-image: url("data:image/svg+xml,%3Csvg width='60' height='23' viewBox='0 0 60 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M58.7071 11.7071C58.9024 11.5118 58.9024 11.1952 58.7071 11L55.5251 7.81803C55.3298 7.62277 55.0132 7.62277 54.818 7.81803C54.6228 8.01329 54.6228 8.32987 54.818 8.52513L57.6464 11.3536L54.818 14.182C54.6228 14.3773 54.6228 14.6939 54.818 14.8892C55.0132 15.0845 55.3298 15.0845 55.5251 14.8892L58.7071 11.7071ZM0 12L58 12L58 11L0 11L0 12Z' fill='currentColor'/%3E%3C/svg%3E");
+				background-size: rem(60);
+				background-position: right center;
+				background-repeat: no-repeat;
+				display: block;
+				width: rem(20);
+				height: rem(8);
+				color: $mainColor;
+				transform: rotate(-35deg);
+				transform-origin: center;
+				transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+			}
+			@media (any-hover: hover) {
+				&:hover::after {
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 60 23'%3E%3Cpath fill='%23396E8B%0A' d='M58.7 11.7c.2-.2.2-.5 0-.7l-3.2-3.2a.5.5 0 0 0-.7.7l2.8 2.9-2.8 2.8a.5.5 0 0 0 .7.7l3.2-3.2ZM0 12h58v-1H0v1Z'/%3E%3C/svg%3E");
+					width: rem(60);
+					background-size: rem(60);
+					color: $mainLogoColor;
+					transform: rotate(0deg);
+				}
+			}
+		}
+	}
+}
