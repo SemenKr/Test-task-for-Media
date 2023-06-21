@@ -1,6 +1,11 @@
 .production {
 	// .production__container
 	&__container {
+		@include adaptiveValue("padding-top", 150, 80);
+	}
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 70, 40);
 	}
 	// .production__list
 	&__list {

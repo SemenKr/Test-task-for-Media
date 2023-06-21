@@ -1,8 +1,9 @@
 .slider {
 	position: relative;
-	min-height: rem(450);
+	@include adaptiveValue("min-height", 640, 490);
+	min-height: rem(650);
 	@media (max-width: $mobileSmall) {
-		min-height: rem(365);
+		min-height: rem(440);
 	}
 }
 
@@ -64,6 +65,7 @@
 		pointer-events: none;
 	}
 }
+
 .slick-slide {
 	margin-right: 20px; /* Задайте нужную ширину промежутка */
 }

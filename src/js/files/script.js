@@ -5,3 +5,4 @@ import {flsModules} from "./modules.js";
 
 import "./case-slider.js"
 import "./form.js"
+import "./popup.js"

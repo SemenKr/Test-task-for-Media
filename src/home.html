@@ -70,7 +70,7 @@
 						</svg>
 					</div>
 
-					<button type="button" aria-label="Оформить заявку" class="intro__button">Оформить заявку</button>
+					<button type="button" aria-label="Оформить заявку" class="intro__button button open-popup-button " id="triggerElement">Оформить заявку</button>
 
 				</div>
 			</section>
@@ -122,7 +122,7 @@
 					<h2 class="cases__title title">кейсы</h2>
 					<div class="cases__slider-container">
 						<div class="cases__slider cases-slider">
-							<div class="cases-slide">
+							<div class="cases-slide open-popup">
 								<figure>
 									<div class="cases-slide__image"><img src="@img/photo1@1x.jpg" srcset="@img/photo1@2x.jpg 2x" alt="Стеклянные двери и зеркала" width="406" height="600"></div>
 									<figcaption>
@@ -130,7 +130,7 @@
 									</figcaption>
 								</figure>
 							</div>
-							<div class="cases-slide">
+							<div class="cases-slide open-popup">
 								<figure>
 									<div class="cases-slide__image"><img src="@img/photo2@1x.jpg" srcset="@img/photo2@2x.jpg 2x" alt="Стеклянные двери и зеркала" width="406" height="600"></div>
 									<figcaption>
@@ -146,7 +146,7 @@
 									</figcaption>
 								</figure>
 							</div>
-							<div class="cases-slide">
+							<div class="cases-slide open-popup">
 								<figure>
 									<div class="cases-slide__image"><img src="@img/photo2@1x.jpg" srcset="@img/photo2@2x.jpg 2x" alt="Стеклянные двери и зеркала" width="406" height="600"></div>
 									<figcaption>
@@ -154,7 +154,7 @@
 									</figcaption>
 								</figure>
 							</div>
-							<div class="cases-slide">
+							<div class="cases-slide open-popup">
 								<figure>
 									<div class="cases-slide__image"><img src="@img/photo4@1x.jpg" srcset="@img/photo4@2x.jpg 2x" alt="Стеклянные двери и зеркала" width="406" height="600"></div>
 									<figcaption>
@@ -162,7 +162,7 @@
 									</figcaption>
 								</figure>
 							</div>
-							<div class="cases-slide">
+							<div class="cases-slide open-popup">
 								<figure>
 									<div class="cases-slide__image"><img src="@img/photo1@1x.jpg" srcset="@img/photo1@2x.jpg 2x" alt="Стеклянные двери и зеркала" width="406" height="600"></div>
 									<figcaption>
@@ -186,22 +186,22 @@
 						<p class="feedback__form-text">Вы&nbsp;можете задать вопрос, заказать выезд менеджера или получить консультацию.</p>
 						<form class="feedback__form form" id="myForm">
 							<div class="form__field">
-								<label for="name">Имя</label>
+								<label class="form__label" for="name">Имя</label>
 								<input type="text" id="name" name="name" placeholder="как к вам обращаться" required>
 							</div>
 							<div class="form__field">
-								<label for="phone">Телефон</label>
+								<label class="form__label" for="phone">Телефон</label>
 								<input type="tel" id="phone" name="phone" placeholder="ваш контактный номер телефона" required>
 							</div>
 							<div class="form__field">
-								<label for="email">Почта</label>
+								<label class="form__label" for="email">Почта</label>
 								<input type="email" id="email" name="email" placeholder="адрес  вашей электронной почты" required>
 							</div>
 							<div class="form__field">
-								<label for="message">Сообщение</label>
-								<textarea id="message" name="message" rows="1" placeholder="расскажите о вашем проекте" required></textarea>
+								<label class="form__label" for="myTextarea">Сообщение</label>
+								<textarea id="myTextarea" name="message" placeholder="расскажите о вашем проекте" required></textarea>
 								<div class="form__load-file">
-									<label for="file">Прикрепить файл</label>
+									<label class="form__load-label" for="file">Прикрепить файл</label>
 									<input class="visually-hidden" type="file" id="file" name="file">
 								</div>
 
@@ -209,8 +209,9 @@
 							<div>
 
 							</div>
-							<div>
-								<button type="submit">Отправить</button>
+							<div class="form__button-wrapper">
+								<p>Заполняя форму, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных</p>
+								<button class="form__button button" type="submit">Отправить</button>
 							</div>
 						</form>
 
@@ -223,6 +224,42 @@
 			</section>
 		</main>
 		@@include('html/_footer.htm',{})
+	</div>
+
+
+	<div id="popupContainer" class="popup-overlay">
+		<div id="popup" class="popup">
+			<div class="popup__container">
+				<div class="popup__content">
+					<h2 class="popup__title title">Стеклянные зеркала</h2>
+					<p>Основное отличие цельностеклянных перегородок от&nbsp;других систем в&nbsp;том, что они крепко зафиксированы сверху и&nbsp;снизу.</p>
+					<p>Закалённое стекло толщиной 10&nbsp;мм, зажимной профиль который фиксирует крепко конструкцию сверху и&nbsp;снизу, специальная фурнитура, напольный доводчик фиксирует дверь в&nbsp;положении 90&nbsp;градусов.</p>
+				</div>
+				<div class="popup__slider">
+					<div class="slide">
+						<img src="@img/photo-popup@1x.jpg" srcset="@img/photo-popup@2x.png 2x" alt="Стеклянные двери и зеркала" width="406" height="600">
+					</div>
+					<div class="slide">
+						<img src="@img/photo-popup@1x.jpg" srcset="@img/photo-popup@2x.png 2x" alt="Стеклянные двери и зеркала" width="406" height="600">
+					</div>
+					<div class="slide">
+						<img src="@img/photo-popup@1x.jpg" srcset="@img/photo-popup@2x.png 2x" alt="Стеклянные двери и зеркала" width="406" height="600">
+					</div>
+					<div class="slide">
+						<img src="@img/photo-popup@1x.jpg" srcset="@img/photo-popup@2x.png 2x" alt="Стеклянные двери и зеркала" width="406" height="600">
+					</div>
+					<div class="slide">
+						<img src="@img/photo-popup@1x.jpg" srcset="@img/photo-popup@2x.png 2x" alt="Стеклянные двери и зеркала" width="406" height="600">
+					</div>
+				</div>
+				<div class="slider-popup__nav">
+				</div>
+				<button class="popup__button button">оформить заявку</button>
+
+				<button class="popup__close-btn" id="closePopupButton" type="button"><span class="visually-hidden">Закрыть</span></button>
+			</div>
+
+		</div>
 	</div>
 	@@include('html/_js.htm',{})
 </body>

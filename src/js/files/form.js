@@ -1,13 +1,27 @@
-$(document).ready(function () {
+
+$(document).ready(() => {
+	function autoResize() {
+		this.style.height = "auto";
+		this.style.height = this.scrollHeight + "px";
+	}
+
+	const textarea = document.getElementById("myTextarea");
+
+	textarea.addEventListener("input", function () {
+		this.style.height = "auto";
+		this.style.height = this.scrollHeight + "px";
+	});
+
+
 	// Обработчик отправки формы
-	$('#myForm').submit(function (event) {
+	$('#myForm').submit((event) => {
 		event.preventDefault(); // Отменить стандартное поведение отправки формы
 
 		if (validateForm()) {
 			showLoader(); // Показать загрузчик
 
 			// Получение данных формы
-			var formData = new FormData($('#myForm')[0]);
+			const formData = new FormData($('#myForm')[0]);
 
 			// Отправка данных формы
 			$.ajax({
@@ -16,16 +30,16 @@ $(document).ready(function () {
 				data: formData,
 				processData: false,
 				contentType: false,
-				success: function (response) {
+				success: (response) => {
 					// Имитация загрузки файла
 					uploadFile();
 
 					// Имитация отправки данных формы
-					setTimeout(function () {
+					setTimeout(() => {
 						sendForm();
 					}, 2000);
 				},
-				error: function () {
+				error: () => {
 					alert('Ошибка при отправке данных.');
 					hideLoader(); // Скрыть загрузчик в случае ошибки
 				}
@@ -35,10 +49,10 @@ $(document).ready(function () {
 
 	// Функция для проверки заполнения формы
 	function validateForm() {
-		var name = $('#name').val();
-		var phone = $('#phone').val();
-		var email = $('#email').val();
-		var message = $('#message').val();
+		const name = $('#name').val();
+		const phone = $('#phone').val();
+		const email = $('#email').val();
+		const message = $('#message').val();
 
 		if (name === '' || phone === '' || email === '' || message === '') {
 			alert('Пожалуйста, заполните все поля формы.');
@@ -50,7 +64,7 @@ $(document).ready(function () {
 
 	// Функция для имитации загрузки файла
 	function uploadFile() {
-		setTimeout(function () {
+		setTimeout(() => {
 			console.log('Файл успешно загружен.');
 		}, 1500);
 	}

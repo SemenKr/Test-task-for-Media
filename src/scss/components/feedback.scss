@@ -4,12 +4,31 @@
 	}
 	// .feedback__title
 	&__title {
+		@include adaptiveValue("margin-bottom", 70, 40);
 	}
 	// .feedback__form-container
 	&__form-container {
+		display: flex;
+		@include adaptiveValue("column-gap", 132, 50);
+		color: hsl(72, 5%, 19%, 70%);
+		line-height: 1.5;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			@include adaptiveValue("font-size", 14, 16);
+		}
 	}
 	// .feedback__form-text
 	&__form-text {
+		max-width: rem(400);
+
+		@media (max-width: $tablet) {
+			max-width: rem(225);
+		}
+
+		@media (max-width: $mobile) {
+			max-width: rem(400);
+		}
 	}
 	// .feedback__form
 	&__form {
@@ -24,29 +43,142 @@
 		border-bottom: 1px solid $mainColor;
 		padding: rem(15) 0;
 		position: relative;
+
+		@media (max-width: em(500)) {
+			flex-direction: column;
+			justify-content: start;
+			align-items: flex-start;
+			row-gap: rem(8);
+		}
 	}
 
 	input {
-		position: absolute;
-		left: 30%;
-		right: 10%;
-		height: 100%;
+		width: 100%;
+		resize: none;
+		overflow: hidden;
+		margin-left: 24%;
+		margin-right: 15%;
 		border: none;
 		outline: none;
 
 		&::placeholder {
-			opacity: 0.3;
+			color: hsl(72, 5%, 19%, 30%);
+		}
+
+		@media (max-width: em(500)) {
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 
-	label {
+	textarea {
+		width: 100%;
+		resize: none;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		margin-left: 24%;
+		margin-right: 15%;
+		border: none;
+		outline: none;
+
+		&::placeholder {
+			color: hsl(72, 5%, 19%, 30%);
+		}
+
+		@media (max-width: em(500)) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&__label {
+		position: absolute;
+		left: 0;
+		transition: opacity 0.3s ease 0s;
+
+		@media (max-width: em(500)) {
+			position: static;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.7;
+			}
+			&:active {
+				opacity: 0.5;
+			}
+			&:focus-visible {
+				outline: rem(1) solid $mainButtonBg;
+			}
+		}
+	}
+
+	&__load-label {
 		@include adaptiveValue("font-size", 16, 14);
 		line-height: 1.4;
 		text-transform: uppercase;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		transition: opacity 0.3s ease 0s;
+		column-gap: rem(10);
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.7;
+			}
+			&:active {
+				opacity: 0.5;
+			}
+			&:focus-visible {
+				outline: rem(1) solid $mainButtonBg;
+			}
+		}
+
+		&::before {
+			content: "";
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 15 15'%3E%3Cpath fill='%2333342F' fill-rule='evenodd' d='M9.9.04c-.47.08-.97.29-1.36.56-.21.15-.17.12-4.59 4.47A184.31 184.31 0 0 0 .9 8.13c-.01.03-.06.12-.12.2a4.22 4.22 0 0 0-.06 4.75 4.33 4.33 0 0 0 5.98 1.22l.3-.17C7.02 14.1 15 6.25 15 6.22l-.37-.39-.36-.36-.14.13-6.56 6.47c-.9.89-1.22 1.18-1.41 1.31a3.26 3.26 0 0 1-4.99-1.88 2.28 2.28 0 0 1-.07-.75c0-.41 0-.5.07-.75a3.3 3.3 0 0 1 .97-1.62 508.1 508.1 0 0 1 7.05-6.92c.4-.27.77-.38 1.26-.38a2 2 0 0 1 1.51.63c.41.41.6.82.62 1.4.03.52-.13 1-.44 1.39-.18.23-7.04 7-7.2 7.12a.95.95 0 0 1-.62.18 1 1 0 0 1-.9-.5.97.97 0 0 1-.16-.64c.02-.41-.1-.27 2.72-3.06L9.1 4.52l.57-.56-.38-.38-.38-.38-1.85 1.82C2.73 9.3 2.6 9.44 2.46 9.67a2.9 2.9 0 0 0-.2.44c-.07.2-.08.27-.08.64s0 .43.08.64a2.15 2.15 0 0 0 2.07 1.48c.45 0 .95-.16 1.3-.43.15-.11 6.97-6.84 7.23-7.13a3.14 3.14 0 0 0 .46-3.57A3.26 3.26 0 0 0 9.89.04Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-position: center;
+			width: rem(15);
+			height: rem(15);
+			display: block;
+		}
 	}
 
 	&__load-file {
 		position: absolute;
 		right: 1%;
+
+		@media (max-width: em(500)) {
+			left: 0;
+			bottom: -50%;
+		}
+	}
+
+	&__button-wrapper {
+		display: flex;
+		justify-content: space-between;
+		padding-top: rem(30);
+
+		@media (max-width: em(500)) {
+			padding-top: rem(80);
+			padding-left: rem(25);
+			padding-right: rem(25);
+			flex-direction: column-reverse;
+			align-items: center;
+			row-gap: rem(10);
+		}
+
+		p {
+			@include adaptiveValue("font-size", 14, 12);
+			color: hsl(72, 5%, 19%, 70%);
+		}
+
+		button {
+			padding: rem(15) rem(51.5);
+			width: 100%;
+		}
 	}
 }
