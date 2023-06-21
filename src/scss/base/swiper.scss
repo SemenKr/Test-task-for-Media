@@ -3,6 +3,10 @@
 	@include adaptiveValue("height", 640, 490);
 	min-width: 0;
 	min-height: 0;
+
+	@media (max-width: $tablet) {
+		height: auto;
+	}
 }
 
 .slide {

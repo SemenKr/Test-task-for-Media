@@ -6,6 +6,10 @@
 		display: grid;
 		column-gap: rem(48);
 		grid-template-columns: auto;
+
+		@media (max-width: $tablet) {
+			grid-template-columns: 1fr;
+		}
 	}
 	// .intro__title-wrapper
 	&__title-wrapper {
@@ -18,7 +22,6 @@
 	}
 	// .intro__title
 	&__title {
-		width: rem(380);
 		margin-bottom: rem(15);
 	}
 	// .intro__description
@@ -35,6 +38,10 @@
 		position: relative;
 		grid-row: span 3;
 		grid-column: 2;
+		@media (max-width: $tablet) {
+			grid-column: 1;
+			grid-row: span 1;
+		}
 
 		@media (max-width: $mobile) {
 			padding-left: 0;
@@ -47,8 +54,12 @@
 	// .intro__button
 	&__button {
 		justify-self: start;
-		@media (max-width: $mobile) {
-			position: static;
+
+		@media (max-width: $tablet) {
+			grid-column: 1;
+			grid-row: 3;
+			justify-self: center;
+			width: 100%;
 		}
 	}
 }
