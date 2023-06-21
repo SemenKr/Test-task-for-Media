@@ -42,6 +42,7 @@ $(document).ready(function () {
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		autoplay: true,
+		adaptiveHeight: true,
 		responsive: [
 			{
 				breakpoint: 1024,

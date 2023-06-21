@@ -1,10 +1,6 @@
 .slider {
 	position: relative;
 	@include adaptiveValue("min-height", 640, 490);
-	min-height: rem(650);
-	@media (max-width: $mobileSmall) {
-		min-height: rem(440);
-	}
 }
 
 .slide {
@@ -67,7 +63,8 @@
 }
 
 .slick-slide {
-	margin-right: 20px; /* Задайте нужную ширину промежутка */
+	margin-right: 20px;
+	box-sizing: border-box;
 }
 
 /* Убедитесь, что последний слайд не имеет правого отступа */
