@@ -250,12 +250,15 @@
 
 .popup {
 	background-color: white;
-	padding: rem(20);
+	padding: 0;
 	border-radius: 5px;
 	animation: fadeIn 0.3s;
 	z-index: 20;
 	opacity: 0;
 	transform: scale(0.8);
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
 }
 
 .popup-overlay.active {

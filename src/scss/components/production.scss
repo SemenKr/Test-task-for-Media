@@ -1,7 +1,7 @@
 .production {
 	// .production__container
 	&__container {
-		@include adaptiveValue("padding-top", 150, 80);
+		@include adaptiveValue("padding-top", 157, 80);
 	}
 
 	&__title {

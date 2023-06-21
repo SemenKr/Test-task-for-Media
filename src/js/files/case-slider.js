@@ -36,7 +36,6 @@ $(document).ready(function () {
 
 	slider.slick({
 		centerMode: true,
-		centerPadding: '60px',
 		dots: false,
 		arrows: false,
 		slidesToShow: 4,

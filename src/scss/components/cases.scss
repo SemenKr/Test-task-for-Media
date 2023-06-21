@@ -1,5 +1,5 @@
 .cases__container {
-	@include adaptiveValue("padding-top", 150, 80);
+	@include adaptiveValue("padding-top", 143, 80);
 }
 .cases__slider-container {
 	overflow: hidden;
@@ -9,7 +9,7 @@
 }
 
 .cases__title {
-	margin-bottom: rem(38);
+	margin-bottom: rem(70);
 }
 
 .cases__slider {
@@ -17,7 +17,7 @@
 	overflow: hidden;
 	margin-right: -30%;
 	overflow: hidden;
-	margin-bottom: rem(60);
+	margin-bottom: rem(135);
 	height: rem(600);
 
 	@media (max-width: $mobileSmall) {
@@ -88,13 +88,11 @@
 		&::before {
 			content: "";
 			display: block;
-			padding-bottom: calc(
-				350 / 406 * 100%
-			); /* тут подбирается %, чтобы соответствовать нужным пропорциям картинки */
+			padding-bottom: calc(480 / 406 * 100%);
 			transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
 
 			.slick-current & {
-				padding-bottom: calc(600 / 406 * 100%);
+				padding-bottom: calc(700 / 406 * 100%);
 			}
 		}
 	}

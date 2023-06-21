@@ -1,95 +1,104 @@
-// Получаем ссылки на элементы модального окна
-const modalContainer = document.getElementById("popupContainer");
-const modal = document.getElementById("popup");
-const closeButton = document.querySelector(".popup__close-btn");
+$(document).ready(function () {
 
-let sourceOfPopup = "";
+	// Получаем ссылки на элементы модального окна
+	const modalContainer = document.getElementById("popupContainer");
+	const modal = document.getElementById("popup");
+	const closeButton = document.querySelector(".popup__close-btn");
+
+	let sourceOfPopup = "";
+
+	$('.popup__slider').slick({
+		dots: true,
+		arrows: true,
+		infinite: false,
+		appendArrows: $(".slider-popup__nav")
+	});
+	$('.slider').slick('setPosition');
 
 
-// Функция для открытия модального окна
-function openModal(source) {
-	modalContainer.style.display = "flex";
-	setTimeout(() => {
-		modal.classList.add("active");
-		modalContainer.classList.add("active");
-		// Заблокировать прокрутку страницы
-		document.body.style.overflow = "hidden";
-		// Разрешить прокрутку внутри модального окна
-		modalContainer.style.overflow = "auto";
-		$('.popup__slider').slick({
-			dots: true,
-			arrows: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			infinite: false,
-			appendArrows: $(".slider-popup__nav")
-		});
+	// Функция для открытия модального окна
+	function openModal(source) {
+		modalContainer.style.display = "flex";
+		setTimeout(() => {
+			modal.classList.add("active");
+			modalContainer.classList.add("active");
+			$('.popup__slider').slick('setPosition');
+			// Заблокировать прокрутку страницы
+			document.body.style.overflow = "hidden";
+			// Разрешить прокрутку внутри модального окна
+			modalContainer.style.overflow = "auto";
 
-		console.log("Open modal");
-	}, 50);
 
-	// Сохраняем информацию о вызывающем элементе
-	sourceOfPopup = source;
+			console.log("Open modal");
+		}, 50);
 
-	// Блокируем прокрутку страницы
-	document.body.classList.add("overflow-hidden");
-}
+		// Сохраняем информацию о вызывающем элементе
+		sourceOfPopup = source;
 
-// Функция для закрытия модального окна
-function closeModal() {
-	modal.classList.remove("active");
-	setTimeout(() => {
-		modalContainer.style.display = "none";
-		modalContainer.classList.remove("active");
-		// Разблокировать прокрутку страницы
-		document.body.style.overflow = "auto";
-		console.log("Close modal");
-	}, 300);
+		// Блокируем прокрутку страницы
+		document.body.classList.add("overflow-hidden");
+	}
 
-	// Разблокируем прокрутку страницы
-	document.body.classList.remove("overflow-hidden");
+	// Функция для закрытия модального окна
+	function closeModal() {
+		modal.classList.remove("active");
+		setTimeout(() => {
+			modalContainer.style.display = "none";
+			modalContainer.classList.remove("active");
+			// Разблокировать прокрутку страницы
+			document.body.style.overflow = "auto";
+			console.log("Close modal");
+		}, 300);
 
-	// Очищаем информацию о вызывающем элементе
-	sourceOfPopup = "";
-}
+		// Разблокируем прокрутку страницы
+		document.body.classList.remove("overflow-hidden");
 
-// Обработчик клика по кнопке "оформить заявку"
-const openButton = document.querySelector(".popup__button");
-openButton.addEventListener("click", () => {
-	openModal("openButton");
-});
+		// Очищаем информацию о вызывающем элементе
+		sourceOfPopup = "";
+	}
 
-// Обработчик клика по элементу, который открывает попап
-const triggerElement = document.getElementById("triggerElement");
-triggerElement.addEventListener("click", () => {
-	openModal("triggerElement");
-});
+	// Обработчик клика по кнопке "оформить заявку"
+	const openButton = document.querySelector(".popup__button");
+	openButton.addEventListener("click", () => {
+		openModal("openButton");
+	});
 
-// Обработчик клика по кнопке "Закрыть"
-closeButton.addEventListener("click", () => {
-	closeModal();
-});
+	// Обработчик клика по элементу, который открывает попап
+	const triggerElement = document.getElementById("triggerElement");
+	triggerElement.addEventListener("click", () => {
+		openModal("triggerElement");
+	});
 
-// Обработчик нажатия клавиши Esc
-document.addEventListener("keydown", (event) => {
-	if (event.key === "Escape") {
+	// Обработчик клика по кнопке "Закрыть"
+	closeButton.addEventListener("click", () => {
+		closeModal();
+	});
+
+	// Обработчик нажатия клавиши Esc
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			closeModal();
+		}
+	});
+
+	// Обработчик клика вне модального окна
+	modalContainer.addEventListener("click", (event) => {
+		if (event.target === modalContainer) {
+			closeModal();
+		}
+	});
+
+	// Функция для открытия модального окна из любого места в коде
+	function openModalFromAnywhere(source) {
+		openModal(source);
+	}
+
+	// Функция для закрытия модального окна из любого места в коде
+	function closeModalFromAnywhere() {
 		closeModal();
 	}
+
+
+
 });
 
-// Обработчик клика вне модального окна
-modalContainer.addEventListener("click", (event) => {
-	if (event.target === modalContainer) {
-		closeModal();
-	}
-});
-
-// Функция для открытия модального окна из любого места в коде
-function openModalFromAnywhere(source) {
-	openModal(source);
-}
-
-// Функция для закрытия модального окна из любого места в коде
-function closeModalFromAnywhere() {
-	closeModal();
-}
