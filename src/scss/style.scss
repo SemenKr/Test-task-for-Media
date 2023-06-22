@@ -47,7 +47,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 // Брейк-поинты
 $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
 $tablet: em(1023.98); // Планшеты, некоторые телефоны в горизонтальном положении
-$mobile: em(767.98); // Телефоны L
+$mobile: em(768.98); // Телефоны L
 $mobileSmall: em(479.98); // Телефоны S
 
 // Тип адаптива:
@@ -71,9 +71,6 @@ body {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
-	}
-	// Сайт загружен
-	.loaded & {
 	}
 }
 

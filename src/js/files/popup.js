@@ -63,10 +63,14 @@ $(document).ready(function () {
 		openModal("openButton");
 	});
 
-	// Обработчик клика по элементу, который открывает попап
-	const triggerElement = document.getElementById("triggerElement");
-	triggerElement.addEventListener("click", () => {
-		openModal("triggerElement");
+	// Получаем все элементы, открывающие попапы
+	const triggerElements = document.querySelectorAll(".popup__open");
+
+	// Применяем обработчик события к каждому элементу
+	triggerElements.forEach((element) => {
+		element.addEventListener("click", () => {
+			openModal(element);
+		});
 	});
 
 	// Обработчик клика по кнопке "Закрыть"

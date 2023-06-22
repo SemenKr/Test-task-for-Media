@@ -17,12 +17,16 @@
 		margin-bottom: rem(70);
 		@media (max-width: $mobile) {
 			position: static;
-			margin-bottom: rem(45);
+			margin-top: 0;
+			margin-bottom: rem(44);
 		}
 	}
 	// .intro__title
 	&__title {
 		margin-bottom: rem(15);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(11);
+		}
 	}
 	// .intro__description
 	&__description {
@@ -59,7 +63,7 @@
 			grid-column: 1;
 			grid-row: 3;
 			justify-self: center;
-			width: 100%;
+			width: 80%;
 		}
 	}
 }

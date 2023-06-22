@@ -10,6 +10,10 @@
 
 .cases__title {
 	margin-bottom: rem(70);
+
+	@media (max-width: $mobile) {
+		margin-bottom: rem(40);
+	}
 }
 
 .cases__slider {
@@ -19,6 +23,10 @@
 	overflow: hidden;
 	margin-bottom: rem(135);
 	height: rem(600);
+
+	@media (max-width: $mobile) {
+		margin-bottom: rem(50);
+	}
 
 	@media (max-width: $mobileSmall) {
 		height: 100%;
@@ -76,12 +84,17 @@
 .cases-slide__image {
 	position: relative;
 	overflow: hidden;
+	cursor: pointer;
 
 	&::before {
 		content: "";
 		display: block;
 		padding-bottom: calc(600 / 406 * 100%);
 		transition: padding 0.3s ease 0s, margin 0.3s ease 0s;
+
+		@media (max-width: $mobile) {
+			padding-bottom: 109%;
+		}
 	}
 
 	@media (min-width: $mobile) {

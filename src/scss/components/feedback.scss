@@ -1,7 +1,7 @@
 .feedback {
 	// .feedback__container
 	&__container {
-		@include adaptiveValue("padding-top", 136, 90);
+		@include adaptiveValue("padding-top", 136, 60);
 	}
 	// .feedback__title
 	&__title {
@@ -52,6 +52,7 @@
 			justify-content: start;
 			align-items: flex-start;
 			row-gap: rem(8);
+			padding: rem(22) 0 rem(6);
 		}
 	}
 
@@ -74,7 +75,7 @@
 		}
 	}
 
-	textarea {
+	&__textarea {
 		width: 100%;
 		resize: none;
 		display: flex;
@@ -92,6 +93,8 @@
 		@media (max-width: em(500)) {
 			margin-left: 0;
 			margin-right: 0;
+			padding-bottom: 0;
+			height: rem(17);
 		}
 	}
 
@@ -183,6 +186,12 @@
 			padding: rem(15) rem(51.5);
 			width: rem(179);
 			justify-self: flex-end;
+
+			@media (max-width: em(500)) {
+				justify-self: flex-start;
+				align-self: start;
+				width: 100%;
+			}
 		}
 	}
 }

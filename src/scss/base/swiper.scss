@@ -112,15 +112,15 @@
 
 	figcaption {
 		display: flex;
-		flex-wrap: wrap;
+
 		align-items: center;
 		justify-content: flex-start;
-		font-size: rem(14);
 		line-height: 1.3;
 		text-transform: uppercase;
 		font-weight: 400;
 		column-gap: rem(8);
 		@include adaptiveValue("margin-top", 25, 10);
+		@include adaptiveValue("font-size", 14, 12);
 	}
 
 	span {
