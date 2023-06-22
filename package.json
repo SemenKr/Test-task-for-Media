@@ -52,6 +52,7 @@
 		"load-plugins": "latest",
 		"mini-css-extract-plugin": "2.4.7",
 		"nouislider": "latest",
+		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"pug": "latest",
 		"pug-loader": "latest",
 		"sass": "latest",

@@ -1,17 +1,18 @@
 import fs from 'fs';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import FileIncludeWebpackPlugin from 'file-include-webpack-plugin-replace';
 import CopyPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from "terser-webpack-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import * as path from 'path';
 
 const srcFolder = "src";
-const builFolder = "dist";
+const buildFolder = "dist";
 const rootFolder = path.basename(path.resolve());
 
-let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
+let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'));
 let htmlPages = [];
 
 if (!pugPages.length) {
@@ -23,29 +24,32 @@ if (!pugPages.length) {
 			'indent_size': 3
 		},
 		replace: [
-			{ regex: '../img', to: 'img' },
-			{ regex: '@img', to: 'img', },
-			{ regex: 'NEW_PROJECT_NAME', to: rootFolder }
+			{regex: '../img', to: 'img'},
+			{regex: '@img', to: 'img'},
+			{regex: 'NEW_PROJECT_NAME', to: rootFolder}
 		],
-	})]
+	})];
 }
 
 const paths = {
 	src: path.resolve(srcFolder),
-	build: path.resolve(builFolder)
-}
+	build: path.resolve(buildFolder)
+};
+
 const config = {
 	mode: "production",
 	cache: {
 		type: 'filesystem'
 	},
 	optimization: {
-		minimizer: [new TerserPlugin({
-			extractComments: false,
-		})],
+		minimizer: [
+			new TerserPlugin({
+				extractComments: false,
+			}),
+		],
 	},
 	output: {
-		path: `${paths.build}`,
+		path: paths.build,
 		filename: 'app.min.js',
 		publicPath: '/',
 	},
@@ -62,7 +66,8 @@ const config = {
 							replace: '../img',
 							flags: 'g'
 						}
-					}, {
+					},
+					{
 						loader: 'css-loader',
 						options: {
 							importLoaders: 0,
@@ -84,24 +89,26 @@ const config = {
 							sassOptions: {
 								outputStyle: "expanded",
 							},
-						}
+						},
 					},
 				],
-			}, {
+			},
+			{
 				test: /\.pug$/,
 				use: [
 					{
 						loader: 'pug-loader'
-					}, {
+					},
+					{
 						loader: 'string-replace-loader',
 						options: {
 							search: '@img',
 							replace: 'img',
 							flags: 'g'
 						}
-					}
-				]
-			}
+					},
+				],
+			},
 		],
 	},
 	plugins: [
@@ -109,7 +116,7 @@ const config = {
 		...pugPages.map(pugPage => new HtmlWebpackPlugin({
 			minify: false,
 			template: `${srcFolder}/${pugPage}`,
-			filename: `../${pugPage.replace(/\.pug/, '.html')}`
+			filename: `../${pugPage.replace(/\.pug/, '.html')}`,
 		})),
 		new MiniCssExtractPlugin({
 			filename: '../css/style.css',
@@ -117,24 +124,31 @@ const config = {
 		new CopyPlugin({
 			patterns: [
 				{
-					from: `${paths.src}/files`, to: `../files`,
-					noErrorOnMissing: true
-				}, {
-					from: `${paths.src}/php`, to: `../`,
-					noErrorOnMissing: true
-				}, {
-					from: `${paths.src}/favicon.ico`, to: `../`,
-					noErrorOnMissing: true
-				}
+					from: `${paths.src}/files`,
+					to: `../files`,
+					noErrorOnMissing: true,
+				},
+				{
+					from: `${paths.src}/php`,
+					to: `../`,
+					noErrorOnMissing: true,
+				},
+				{
+					from: `${paths.src}/favicon.ico`,
+					to: `../`,
+					noErrorOnMissing: true,
+				},
 			],
-		})
+		}),
+		new OptimizeCssAssetsPlugin(),
 	],
 	resolve: {
 		alias: {
 			"@scss": `${paths.src}/scss`,
 			"@js": `${paths.src}/js`,
-			"@img": `${paths.src}/img`
+			"@img": `${paths.src}/img`,
 		},
 	},
-}
+};
+
 export default config;
